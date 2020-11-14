@@ -5,13 +5,14 @@
 void quickSort(int *numbers, int left, int right)
 {
   int pivot; // разрешающий элемент
-  int l_hold = right; //левая граница
+  int l_hold = left; //левая граница
   int r_hold = right; // правая граница
   pivot = numbers[left];
   while (left < right) // пока границы не сомкнутся
   {
-    while ((numbers[right] >= pivot) && (left < right))
-      right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+    while ((numbers[right] >= pivot) && (left < right)) {
+        right--; // сдвигаем правую границу пока элемент [right] больше [pivot]
+    }
     if (left != right) // если границы не сомкнулись
     {
       numbers[left] = numbers[right]; // перемещаем элемент [right] на место разрешающего
@@ -44,9 +45,9 @@ int main()
   for (int i = 0; i<SIZE; i++)
     printf("%4d ", a[i]);
   printf("\n");
-  quickSort(a, 0, SIZE); // вызов функции сортировки
+  quickSort(a, 0, SIZE - 1); // вызов функции сортировки
             // Вывод элементов массива после сортировки
-  for (int i = 0; i<SIZE; i++)
+  for (int i = 0; i < SIZE; i++)
     printf("%4d ", a[i]);
   printf("\n");
   getchar();
